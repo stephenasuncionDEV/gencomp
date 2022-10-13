@@ -35,8 +35,8 @@ jobs:
         with:
           node-version: '12.x'
         
-      - name: clean install dependencies
-        run: npm ci
+      - name: install dependencies
+        run: yarn install
 
       - name: update metadata in package.json
         uses: onlyutkarsh/patch-files-action@v1.0.1
