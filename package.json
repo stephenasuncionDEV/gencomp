@@ -1,0 +1,97 @@
+{
+    "name": "gencomp",
+    "displayName": "gencomp",
+    "description": "A vscode extension to automatically create a separate component for selected code",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.72.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:gencomp.setRoot",
+        "onCommand:gencomp.setOutput",
+        "onCommand:gencomp.generate"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "gencomp.setRoot",
+                "title": "GenComp: Set Root Path"
+            },
+            {
+                "command": "gencomp.setOutput",
+                "title": "GenComp: Set Output Path"
+            },
+            {
+                "command": "gencomp.generate",
+                "title": "GenComp: Generate Component"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "resourceLangId =~ /javascript|typescriptreact/ && editorHasSelection || editorHasMultipleSelections",
+                    "command": "gencomp.generate"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "gencomp.setRoot"
+                },
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "gencomp.setOutput"
+                }
+            ]
+        },
+        "configuration": {
+            "type": "object",
+            "title": "gencomp",
+            "properties": {
+                "gencomp.rootPath": {
+                    "type": "string",
+                    "default": "",
+                    "scope": "window"
+                },
+                "gencomp.outputPath": {
+                    "type": "string",
+                    "default": "src/components",
+                    "scope": "window"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "yarn run package",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "compile-tests": "tsc -p . --outDir out",
+        "watch-tests": "tsc -p . -w --outDir out",
+        "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+        "lint": "eslint src --ext ts",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.0.0",
+        "@types/mocha": "^10.0.0",
+        "@types/node": "16.x",
+        "@types/prettier": "^2.7.1",
+        "@types/vscode": "^1.72.0",
+        "@typescript-eslint/eslint-plugin": "^5.38.1",
+        "@typescript-eslint/parser": "^5.38.1",
+        "@vscode/test-electron": "^2.1.5",
+        "eslint": "^8.24.0",
+        "glob": "^8.0.3",
+        "mocha": "^10.0.0",
+        "prettier": "^2.7.1",
+        "ts-loader": "^9.4.1",
+        "typescript": "^4.8.4",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    }
+}
