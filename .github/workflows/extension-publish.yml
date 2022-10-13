@@ -36,7 +36,9 @@ jobs:
           node-version: '12.x'
         
       - name: install dependencies
-        run: yarn install
+        run: |
+          yarn install
+          yarn global add vsce
 
       - name: update metadata in package.json
         uses: onlyutkarsh/patch-files-action@v1.0.1
