@@ -1,0 +1,12 @@
+- name: publish to marketplace
+  if: github.ref == 'refs/heads/master'
+  run: npm run deploy ${{ secrets.VS_ACCESS_TOKEN }}
+
+- name: create a release
+  if: github.ref == 'refs/heads/master'
+  uses: actions/create-release@v1
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  with:
+    tag_name: v${{ steps.gitversion.outputs.semVer }}
+    release_name: v${{ steps.gitversion.outputs.semVer }}
