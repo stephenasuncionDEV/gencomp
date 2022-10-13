@@ -3,6 +3,7 @@
     "displayName": "gencomp",
     "description": "A vscode extension to automatically create a separate component for selected code",
     "version": "0.0.1",
+    "repository": "https://github.com/stephenasuncionDEV/gencomp",
     "engines": {
         "vscode": "^1.72.0"
     },
