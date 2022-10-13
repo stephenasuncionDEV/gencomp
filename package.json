@@ -1,6 +1,6 @@
 {
     "name": "gencomp",
-    "description": "A vscode extension that generates a new component for the selected line(s) of code",
+    "description": "A vscode extension that generates a new component from the selected line(s) of code",
     "version": "0.0.4",
     "author": "StephenAsuncion",
     "publisher": "StephenAsuncion",
