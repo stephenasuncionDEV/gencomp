@@ -1,6 +1,7 @@
 {
     "name": "gencomp",
     "author": "StephenAsuncion",
+    "publisher": "StephenAsuncion",
     "displayName": "gencomp",
     "description": "A vscode extension to automatically create a separate component for selected code",
     "version": "0.0.1",
