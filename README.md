@@ -1,5 +1,7 @@
 # gencomp
 
+![CI Workflow Badge](https://github.com/stephenasuncionDEV/gencomp/actions/workflows/extension-publish.yml/badge.svg)
+
 > SAY GOODBYE TO HUGE NESTED COMPONENTS!
 
 GenComp is a vscode extension that generates a new component from the selected line(s) of code. Furthermore, it extracts the selected code and copies its imports and create a new react component from it.
