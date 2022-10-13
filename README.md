@@ -2,7 +2,7 @@
 
 > SAY GOODBYE TO HUGE NESTED COMPONENTS!
 
-GenComp generates new component from selected code. Furthermore, it extracts the selected code and copies its imports and create a new react component from it.
+GenComp is a vscode extension that generates new component from selected code. Furthermore, it extracts the selected code and copies its imports and create a new react component from it.
 
 ## Install
 
