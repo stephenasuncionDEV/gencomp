@@ -2,7 +2,7 @@
 
 > SAY GOODBYE TO HUGE NESTED COMPONENTS!
 
-GenComp automatically generates new component from selected code.
+GenComp generates new component from selected code. Furthermore, it extracts the selected code and copies its imports and create a new react component from it.
 
 ## Install
 
@@ -14,9 +14,22 @@ Can also be installed in VS Code: Launch VS Code Quick Open (Ctrl+P), paste the 
 ext install StephenAsuncion.gencomp
 ```
 
-## Setup
+## Instruction
 
+Once you've installed the [extension](https://marketplace.visualstudio.com/items?itemName=StephenAsuncion.gencomp), open your project folder. To be able to generate components we need an output folder.
 
+To set an output folder, right-click on any folder and choose `GenComp: Set Output Path`.
+
+![Setting Output Path](assets/images/setup-1.png)
+
+Now that you've setup your output path, you can now select JSX code to extract.
+Right-click on your selection and choose `GenComp: Generate Component`.
+
+![Generating Component](assets/images/setup-2.png)
+
+After this you would see a `GenComp<#>.js/tsx` component in your `outputPath`.
+
+![Generated Component](assets/images/setup-3.png)
 
 ## License
 
