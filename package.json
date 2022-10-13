@@ -3,10 +3,14 @@
     "author": "StephenAsuncion",
     "publisher": "StephenAsuncion",
     "displayName": "gencomp",
+    "license": "MIT",
     "description": "A vscode extension to automatically create a separate component for selected code",
     "version": "0.0.1",
     "repository": "https://github.com/stephenasuncionDEV/gencomp",
-    "icon": "https://github.com/stephenasuncionDEV/gencomp/blob/main/gencomp.png",
+    "icon": "icon.png",
+    "bugs": {
+        "url": "https://github.com/stephenasuncionDEV/gencomp/issues"
+    },
     "engines": {
         "vscode": "^1.72.0"
     },
