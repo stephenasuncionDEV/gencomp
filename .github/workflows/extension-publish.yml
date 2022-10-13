@@ -55,7 +55,7 @@ jobs:
           VERSION: "${{ steps.gitversion.outputs.semVer }}"
 
       - name: compile and create vsix
-        run: npm run package
+        run: npm run vsix
 
       - name: print vsix path
         run: |
