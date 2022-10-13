@@ -1,7 +1,7 @@
 {
     "name": "gencomp",
     "description": "A vscode extension to automatically create a separate component for selected code",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "StephenAsuncion",
     "publisher": "StephenAsuncion",
     "displayName": "gencomp",
@@ -18,17 +18,12 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:gencomp.setRoot",
         "onCommand:gencomp.setOutput",
         "onCommand:gencomp.generate"
     ],
     "main": "./dist/extension.js",
     "contributes": {
         "commands": [
-            {
-                "command": "gencomp.setRoot",
-                "title": "GenComp: Set Root Path"
-            },
             {
                 "command": "gencomp.setOutput",
                 "title": "GenComp: Set Output Path"
@@ -48,10 +43,6 @@
             "explorer/context": [
                 {
                     "when": "explorerResourceIsFolder",
-                    "command": "gencomp.setRoot"
-                },
-                {
-                    "when": "explorerResourceIsFolder",
                     "command": "gencomp.setOutput"
                 }
             ]
@@ -60,11 +51,6 @@
             "type": "object",
             "title": "gencomp",
             "properties": {
-                "gencomp.rootPath": {
-                    "type": "string",
-                    "default": "",
-                    "scope": "window"
-                },
                 "gencomp.outputPath": {
                     "type": "string",
                     "default": "src/components",
