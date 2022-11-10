@@ -1,92 +1,93 @@
 {
-    "name": "gencomp",
-    "description": "A vscode extension that generates a new component from the selected line(s) of code",
-    "version": "0.0.5",
-    "author": "StephenAsuncion",
-    "publisher": "StephenAsuncion",
-    "displayName": "gencomp",
-    "license": "MIT",
-    "repository": "https://github.com/stephenasuncionDEV/gencomp",
-    "icon": "assets/images/icon.png",
-    "bugs": {
-        "url": "https://github.com/stephenasuncionDEV/gencomp/issues"
-    },
-    "engines": {
-        "vscode": "^1.72.0"
-    },
-    "categories": [
-        "Other"
+  "name": "gencomp",
+  "description": "A vscode extension that generates a new component from the selected line(s) of code",
+  "version": "0.0.6",
+  "author": "StephenAsuncion",
+  "publisher": "StephenAsuncion",
+  "displayName": "gencomp",
+  "license": "MIT",
+  "repository": "https://github.com/stephenasuncionDEV/gencomp",
+  "icon": "assets/images/icon.png",
+  "bugs": {
+    "url": "https://github.com/stephenasuncionDEV/gencomp/issues"
+  },
+  "engines": {
+    "vscode": "^1.72.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:gencomp.setOutput",
+    "onCommand:gencomp.generate"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gencomp.setOutput",
+        "title": "GenComp: Set Output Path"
+      },
+      {
+        "command": "gencomp.generate",
+        "title": "GenComp: Generate Component"
+      }
     ],
-    "activationEvents": [
-        "onCommand:gencomp.setOutput",
-        "onCommand:gencomp.generate"
-    ],
-    "main": "./dist/extension.js",
-    "contributes": {
-        "commands": [
-            {
-                "command": "gencomp.setOutput",
-                "title": "GenComp: Set Output Path"
-            },
-            {
-                "command": "gencomp.generate",
-                "title": "GenComp: Generate Component"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "when": "resourceLangId =~ /javascript|typescriptreact/ && editorHasSelection || editorHasMultipleSelections",
-                    "command": "gencomp.generate"
-                }
-            ],
-            "explorer/context": [
-                {
-                    "when": "explorerResourceIsFolder",
-                    "command": "gencomp.setOutput"
-                }
-            ]
-        },
-        "configuration": {
-            "type": "object",
-            "title": "gencomp",
-            "properties": {
-                "gencomp.outputPath": {
-                    "type": "string",
-                    "default": "src/components",
-                    "scope": "window"
-                }
-            }
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId =~ /javascript|typescriptreact/ && editorHasSelection || editorHasMultipleSelections",
+          "command": "gencomp.generate"
         }
+      ],
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "gencomp.setOutput"
+        }
+      ]
     },
-    "scripts": {
-        "vscode:prepublish": "yarn run package",
-        "compile": "webpack",
-        "watch": "webpack --watch",
-        "package": "webpack --mode production --devtool hidden-source-map",
-        "vsix": "vsce package",
-        "compile-tests": "tsc -p . --outDir out",
-        "watch-tests": "tsc -p . -w --outDir out",
-        "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
-        "lint": "eslint src --ext ts",
-        "test": "node ./out/test/runTest.js"
-    },
-    "devDependencies": {
-        "@types/glob": "^8.0.0",
-        "@types/mocha": "^10.0.0",
-        "@types/node": "18.x",
-        "@types/prettier": "^2.7.1",
-        "@types/vscode": "^1.73.0",
-        "@typescript-eslint/eslint-plugin": "^5.42.1",
-        "@typescript-eslint/parser": "^5.42.1",
-        "@vscode/test-electron": "^2.2.0",
-        "eslint": "^8.27.0",
-        "glob": "^8.0.3",
-        "mocha": "^10.1.0",
-        "prettier": "^2.7.1",
-        "ts-loader": "^9.4.1",
-        "typescript": "^4.8.4",
-        "webpack": "^5.75.0",
-        "webpack-cli": "^4.10.0"
+    "configuration": {
+      "type": "object",
+      "title": "gencomp",
+      "properties": {
+        "gencomp.outputPath": {
+          "type": "string",
+          "default": "src/components",
+          "scope": "window"
+        }
+      }
     }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "vsix": "vsce package",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "18.x",
+    "@types/prettier": "^2.7.1",
+    "@types/vscode": "^1.73.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "@vscode/test-electron": "^2.2.0",
+    "eslint": "^8.27.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "prettier": "^2.7.1",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.8.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
+  }
 }

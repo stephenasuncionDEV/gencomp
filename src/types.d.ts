@@ -1,1 +1,1 @@
-export type GenCompSettings = 'rootPath' | 'outputPath' | 'templatePath';
+export type GenCompSettings = "rootPath" | "outputPath" | "templatePath";
