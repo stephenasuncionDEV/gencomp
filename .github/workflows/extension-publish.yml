@@ -12,13 +12,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 18
+          node-version: 18.12.1
 
       - name: Install Dependencies
         run: yarn install
 
       - name: Publish to Visual Studio Marketplace
-        uses: HaaLeo/publish-vscode-extension@v1.0.7
+        uses: HaaLeo/publish-vscode-extension@v1.1.0
         with:
           pat: ${{ secrets.VS_ACCESS_TOKEN }}
           registryUrl: https://marketplace.visualstudio.com
