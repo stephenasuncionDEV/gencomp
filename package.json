@@ -1,13 +1,13 @@
 {
   "name": "gencomp",
   "description": "A vscode extension that generates a new component from the selected line(s) of code",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "author": "StephenAsuncion",
   "publisher": "StephenAsuncion",
   "displayName": "gencomp",
   "license": "MIT",
   "repository": "https://github.com/stephenasuncionDEV/gencomp",
-  "icon": "assets/images/icon.png",
+  "icon": "https://raw.githubusercontent.com/stephenasuncionDEV/gencomp/main/assets/images/icon.png",
   "bugs": {
     "url": "https://github.com/stephenasuncionDEV/gencomp/issues"
   },
