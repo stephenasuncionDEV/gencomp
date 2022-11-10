@@ -36,10 +36,18 @@ export const generate = async () => {
       })
       .split("\n");
 
-    // @TODO: this does not support multiline imports
-    lineArr.forEach((line) => {
+    let curImport = "";
+
+    lineArr.forEach((line, idx) => {
       if (line.slice(0, 6).toLowerCase() === "import") {
         importsArr.push(line);
+      } else if (lineArr[idx - 1].slice(0, 6).toLowerCase() === "import") {
+        curImport += lineArr[idx - 1];
+        curImport += line;
+      } else if (line.indexOf("from ") !== -1) {
+        curImport += line;
+        importsArr.push(line);
+        curImport = "";
       }
     });
 
@@ -73,16 +81,16 @@ export const generate = async () => {
 
     const newCode = prettier.format(
       `
-            ${imports}
-    
-            const GenComp${newCount} = () => {
-                return (
-                    ${jsxCode}
-                )
-            }
-            
-            export default GenComp${newCount}
-        `,
+        ${imports}
+
+        const GenComp${newCount} = () => {
+            return (
+                ${jsxCode}
+            )
+        }
+        
+        export default GenComp${newCount}
+      `,
       {
         tabWidth: 4,
         parser: "babel",
