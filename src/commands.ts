@@ -36,25 +36,16 @@ export const generate = async () => {
       })
       .split("\n");
 
-    let isMultiline = false;
-    let curImport = "";
-
-    lineArr.forEach((line, idx) => {
-      if (line.slice(0, 6).toLowerCase() === "import") {
-        importsArr.push(line);
-      } else if (lineArr[idx - 1].slice(0, 6).toLowerCase() === "import") {
-        curImport += lineArr[idx - 1];
-        curImport += line;
-        isMultiline = true;
-      } else if (isMultiline) {
-        curImport += line;
-        if (line.indexOf("from ") !== -1) {
-          importsArr.push(line);
-          curImport = "";
-          isMultiline = false;
-        }
+    for (let i = 0; i < lineArr.length; i++) {
+      if (
+        lineArr[i].indexOf("export const") !== -1 ||
+        lineArr[i].indexOf("const") !== -1 ||
+        lineArr[i].indexOf("export default") !== -1
+      ) {
+        break;
       }
-    });
+      importsArr.push(lineArr[i]);
+    }
 
     let imports = "";
     importsArr.forEach((imp, idx, arr) => {
