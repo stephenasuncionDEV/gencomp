@@ -36,6 +36,7 @@ export const generate = async () => {
       })
       .split("\n");
 
+    let isMultiline = false;
     let curImport = "";
 
     lineArr.forEach((line, idx) => {
@@ -44,10 +45,12 @@ export const generate = async () => {
       } else if (lineArr[idx - 1].slice(0, 6).toLowerCase() === "import") {
         curImport += lineArr[idx - 1];
         curImport += line;
-      } else if (line.indexOf("from ") !== -1) {
+        isMultiline = true;
+      } else if (isMultiline && line.indexOf("from ") !== -1) {
         curImport += line;
         importsArr.push(line);
         curImport = "";
+        isMultiline = false;
       }
     });
 
