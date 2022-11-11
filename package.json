@@ -1,7 +1,7 @@
 {
   "name": "gencomp",
   "description": "A vscode extension that generates a new component from the selected line(s) of code",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "StephenAsuncion",
   "publisher": "StephenAsuncion",
   "displayName": "gencomp",
@@ -62,6 +62,8 @@
   "scripts": {
     "vscode:prepublish": "yarn run package",
     "compile": "webpack",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
     "vsix": "vsce package",
