@@ -46,11 +46,13 @@ export const generate = async () => {
         curImport += lineArr[idx - 1];
         curImport += line;
         isMultiline = true;
-      } else if (isMultiline && line.indexOf("from ") !== -1) {
+      } else if (isMultiline) {
         curImport += line;
-        importsArr.push(line);
-        curImport = "";
-        isMultiline = false;
+        if (line.indexOf("from ") !== -1) {
+          importsArr.push(line);
+          curImport = "";
+          isMultiline = false;
+        }
       }
     });
 
