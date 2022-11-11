@@ -7,7 +7,7 @@
   "displayName": "gencomp",
   "license": "MIT",
   "repository": "https://github.com/stephenasuncionDEV/gencomp",
-  "icon": "./assets/images/icon.png",
+  "icon": "assets/images/icon.png",
   "bugs": {
     "url": "https://github.com/stephenasuncionDEV/gencomp/issues"
   },
