@@ -1,7 +1,7 @@
 {
   "name": "gencomp",
   "description": "A vscode extension that generates a new component from the selected line(s) of code",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "StephenAsuncion",
   "publisher": "StephenAsuncion",
   "displayName": "gencomp",
@@ -60,7 +60,7 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "yarn run package",
+    "vscode:prepublish": "yarn package",
     "compile": "webpack",
     "webpack": "webpack --mode development",
     "webpack-dev": "webpack --mode development --watch",
@@ -69,10 +69,13 @@
     "vsix": "vsce package",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "pretest": "yarn compile-tests && yarn compile && yarn lint",
     "lint": "eslint src --ext ts",
+    "lint:format": "prettier --check .",
+    "lint:staged": "yarn lint && yarn lint:format",
     "test": "node ./out/test/runTest.js",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
@@ -85,6 +88,7 @@
     "@vscode/test-electron": "^2.2.0",
     "eslint": "^8.27.0",
     "glob": "^8.0.3",
+    "husky": "^8.0.2",
     "mocha": "^10.1.0",
     "prettier": "^2.7.1",
     "ts-loader": "^9.4.1",
