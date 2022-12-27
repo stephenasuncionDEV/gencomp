@@ -1,7 +1,7 @@
 {
   "name": "gencomp",
   "description": "A vscode extension that generates a new component from the selected line(s) of code",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": "StephenAsuncion",
   "publisher": "StephenAsuncion",
   "displayName": "gencomp",
@@ -12,7 +12,7 @@
     "url": "https://github.com/stephenasuncionDEV/gencomp/issues"
   },
   "engines": {
-    "vscode": "^1.73.0"
+    "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
@@ -81,12 +81,12 @@
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "18.x",
-    "@types/prettier": "^2.7.1",
+    "@types/prettier": "^2.7.2",
     "@types/vscode": "^1.74.0",
-    "@typescript-eslint/eslint-plugin": "^5.46.1",
-    "@typescript-eslint/parser": "^5.46.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
     "@vscode/test-electron": "^2.2.1",
-    "eslint": "^8.29.0",
+    "eslint": "^8.30.0",
     "glob": "^8.0.3",
     "husky": "^8.0.2",
     "mocha": "^10.2.0",
