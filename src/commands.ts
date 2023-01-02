@@ -31,16 +31,23 @@ export const generate = async () => {
 
     const lineArr = prettier
       .format(fileCode, {
-        tabWidth: 4,
+        singleQuote: false,
+        tabWidth: 2,
+        printWidth: 80,
+        semi: true,
+        trailingComma: "all",
+        arrowParens: "always",
         parser: "babel",
       })
       .split("\n");
 
     for (let i = 0; i < lineArr.length; i++) {
       if (
-        lineArr[i].indexOf("export const") !== -1 ||
-        lineArr[i].indexOf("const") !== -1 ||
-        lineArr[i].indexOf("export default") !== -1
+        lineArr[i].startsWith("export") ||
+        lineArr[i].startsWith("const") ||
+        lineArr[i].startsWith("type") ||
+        lineArr[i].startsWith("interface") ||
+        lineArr[i].startsWith("function")
       ) {
         break;
       }
@@ -59,11 +66,11 @@ export const generate = async () => {
     const outputPathUri = Uri.file(outputPath);
 
     const outputPathFiles = await workspace.fs.readDirectory(outputPathUri);
+
     const newCount =
       outputPathFiles
         .map((file) => file[0])
-        .filter((file) => file.slice(0, 7).toLowerCase() === "gencomp").length +
-      1;
+        .filter((file) => file.startsWith("GenComp")).length + 1;
 
     const fileExt = {
       javascript: ".js",
@@ -74,7 +81,6 @@ export const generate = async () => {
       outputPathUri,
       `GenComp${newCount}${fileExt}`,
     );
-
     const newCode = prettier.format(
       `
         ${imports}
@@ -88,7 +94,12 @@ export const generate = async () => {
         export default GenComp${newCount}
       `,
       {
-        tabWidth: 4,
+        singleQuote: false,
+        tabWidth: 2,
+        printWidth: 80,
+        semi: true,
+        trailingComma: "all",
+        arrowParens: "always",
         parser: "babel",
       },
     );
